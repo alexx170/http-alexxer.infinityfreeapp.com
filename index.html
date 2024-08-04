@@ -3,47 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
+    <title>My Music Library</title>
     <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: #f0f8ff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            text-align: center;
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 30px;
-            width: 80%;
-            max-width: 600px;
-        }
-        .logo {
-            width: 120px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #333;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #666;
-            font-size: 1.2rem;
-            margin: 0;
-        }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+.music-player {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.music-library, .search-section {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #f0f0f0;
+}
+
+input[type="text"] {
+    width: calc(100% - 90px);
+    padding: 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px;
+}
+
+.search-results {
+    margin-top: 20px;
+}
+
+        
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://via.placeholder.com/120" alt="Welcome Logo" class="logo">
-        <h1>Welcome to Our Website!</h1>
-        <p>We’re glad to have you here. Explore and enjoy!</p>
+        <h1>My Music Library</h1>
+        <div class="music-player">
+            <audio id="audioPlayer" controls>
+                <source id="audioSource" src="" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="music-library">
+            <h2>Offline Library</h2>
+            <ul id="musicList">
+                <!-- List of offline songs will go here -->
+            </ul>
+        </div>
+        <div class="search-section">
+            <h2>Search Online</h2>
+            <input type="text" id="searchBox" placeholder="Search for a song...">
+            <button onclick="searchSong()">Search</button>
+        </div>
+        <div class="search-results" id="searchResults">
+            <!-- Search results will go here -->
+        </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
